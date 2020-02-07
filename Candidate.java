@@ -10,25 +10,16 @@ public class Candidate
         votes = 1;
     }
 
-    /**
-     * @return the name
-     */
     public String getName() 
     {
         return name;
     }
 
-    /**
-     * @return the votes
-     */
     public int getVotes() 
     {
         return votes;
     }
 
-    /**
-     * @param increases votes by 1
-     */
     public void giveVote() 
     {
         votes++;

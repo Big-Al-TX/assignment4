@@ -35,9 +35,29 @@ public class VotingBooth
     
     public String calculateWinner()
     {
-        String output = "";
-        
-        return output;
+        String winnersNames = "";
+        boolean isTie = false;
+        int currentCount = -1;
+        int highestCount = -1;
+        for (int i = 0; i < candidates.length; i++)
+        {
+            currentCount = candidates[i].getVotes();
+            if (currentCount > highestCount)
+            {
+                isTie = false;
+                highestCount = currentCount;
+                winnersNames = candidates[i].getName();
+            }
+            else if (currentCount == highestCount)
+            {
+                isTie = true;
+                winnersNames += " and " + candidates[i].getName();
+            }
+        }
+        if (isTie)
+            return "There is a tie between " + winnersNames + ", each with " + highestCount + " votes!";
+        else
+            return "The winner is " + winnersNames + ", with " + highestCount + " votes!";
     }
     
     public String toString()
@@ -45,9 +65,8 @@ public class VotingBooth
         String output = "";
         for (Candidate candidate : candidates) 
             output += candidate.toString() + "\n";
-        
+        output += "\n" + calculateWinner();
         return output;
     }
-    
     
 }
