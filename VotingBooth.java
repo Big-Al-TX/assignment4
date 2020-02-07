@@ -14,7 +14,7 @@ public class VotingBooth
         boolean voteGiven = false;
         for (int i = 0; i < candidates.length; i++)
         {
-            if (name.equals(candidates[i]))
+            if (name.equals(candidates[i].getName()))
             {
                 candidates[i].giveVote();
                 voteGiven = true;
